@@ -1,0 +1,32 @@
+.main-card {
+//    max-width: 400px;
+//    min-width: 400px;
+    width: 1100px;
+    background-color: #424242;
+    color: #ffffff;
+    top: 3em;
+    left: 8em;
+  }
+
+  .titulo {
+    position: relative;
+    left: 32em;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .loginRegister {
+    width: 10em;
+    height: 3em;
+    left: 29em;
+  }
+
+  mat-card-subtitle {
+      color: white;
+  }
+
+  .conte_LoRe {
+    position: relative;
+    left: 2em;
+  }
