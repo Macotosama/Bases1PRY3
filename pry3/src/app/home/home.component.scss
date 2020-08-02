@@ -1,3 +1,15 @@
+/**
+
+
+footer {
+  background-color: #212121;
+}
+
+.canvas {
+  width: auto;
+  height: auto;
+}
+*/
 .main-card {
 //    max-width: 400px;
 //    min-width: 400px;
@@ -8,25 +20,35 @@
     left: 8em;
   }
 
-  .titulo {
+.titulo {
     position: relative;
     left: 32em;
     padding: 10px;
     margin: 10px;
     text-align: center;
+    width: 400px;
   }
 
-  .loginRegister {
+.loginRegister {
     width: 10em;
     height: 3em;
     left: 29em;
-  }
+}
 
-  mat-card-subtitle {
+mat-card-subtitle {
       color: white;
-  }
+}
 
-  .conte_LoRe {
+.conte_LoRe {
     position: relative;
     left: 2em;
+}
+
+.ventasxAnio {
+    width: 500px;
+    height: 500px;
+    background-color: #424242;
+    color: #ffffff;
+    top: 5em;
+    left: 8em;
   }
