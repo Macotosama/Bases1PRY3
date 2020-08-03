@@ -8,12 +8,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HomeComponent } from './home/home.component';
+import { DialogloginComponent } from './dialoglogin/dialoglogin.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DialogregisterComponent } from './dialogregister/dialogregister.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DialogloginComponent,
+    DialogregisterComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +30,11 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
