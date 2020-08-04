@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogregisterComponent } from '../dialogregister/dialogregister.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialoglogin',
@@ -14,7 +15,8 @@ export class DialogloginComponent implements OnInit {
   readonly height: string = '300px';
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +29,9 @@ export class DialogloginComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         if(result){}
     });
-}
+  }
+
+  jumpMaiHome(): void {
+    this.router.navigate(['/mainMenu']);
+  }
 }
