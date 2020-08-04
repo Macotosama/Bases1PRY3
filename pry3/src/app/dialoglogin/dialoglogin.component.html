@@ -10,7 +10,7 @@
         <input type="password" maxlength="50" minlength="1" matInput>
     </mat-form-field>
     <br>
-    <a class="registerLink" style="cursor: pointer">Registrarse</a>
+    <a class="registerLink" style="cursor: pointer" (click)="register()">Registrarse</a>
 </mat-dialog-content >
 <mat-dialog-actions>
     <button mat-raised-button cdkFocusInitial [mat-dialog-close]="false">Cancelar</button>

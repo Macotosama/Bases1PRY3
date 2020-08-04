@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialogregister.component.scss']
 })
 export class DialogregisterComponent implements OnInit {
+  contrasenia: string;
+  usuario: string;
 
   constructor() { }
 

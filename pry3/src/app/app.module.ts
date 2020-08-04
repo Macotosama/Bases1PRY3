@@ -15,13 +15,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogregisterComponent } from './dialogregister/dialogregister.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DialogloginComponent,
-    DialogregisterComponent
+    DialogregisterComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

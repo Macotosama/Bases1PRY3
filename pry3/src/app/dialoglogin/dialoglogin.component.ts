@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogregisterComponent } from '../dialogregister/dialogregister.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialoglogin',
@@ -8,11 +10,22 @@ import { Component, OnInit } from '@angular/core';
 export class DialogloginComponent implements OnInit {
   contrasenia: string;
   usuario: string;
+  readonly with: string = '235px';
+  readonly height: string = '300px';
 
-  constructor() {}
+  constructor(
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
   }
 
-
+  register(): void {
+    const dialogRef = this.dialog.open(DialogregisterComponent, {
+        width: this.with, height: this.height, backdropClass: 'backdropBackground'
+      })
+      dialogRef.afterClosed().subscribe(result => {
+        if(result){}
+    });
+}
 }
