@@ -15,7 +15,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogregisterComponent } from './dialogregister/dialogregister.component';
+import { MatTableModule } from '@angular/material/table';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { MainProductosComponent } from './main-productos/main-productos.component';
+import { MainVentasComponent } from './main-ventas/main-ventas.component';
+import { MainVendedoresComponent } from './main-vendedores/main-vendedores.component';
+import { MainClientesComponent } from './main-clientes/main-clientes.component';
+import { MainProveedoresComponent } from './main-proveedores/main-proveedores.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,12 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     HomeComponent,
     DialogloginComponent,
     DialogregisterComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    MainProductosComponent,
+    MainVentasComponent,
+    MainVendedoresComponent,
+    MainClientesComponent,
+    MainProveedoresComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +47,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     MatDialogModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
