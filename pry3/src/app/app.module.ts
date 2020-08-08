@@ -22,6 +22,8 @@ import { MainVentasComponent } from './main-ventas/main-ventas.component';
 import { MainVendedoresComponent } from './main-vendedores/main-vendedores.component';
 import { MainClientesComponent } from './main-clientes/main-clientes.component';
 import { MainProveedoresComponent } from './main-proveedores/main-proveedores.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { MainProveedoresComponent } from './main-proveedores/main-proveedores.co
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
