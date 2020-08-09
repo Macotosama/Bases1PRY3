@@ -15,7 +15,23 @@ export class MainMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  jumpMaiHome(): void {
+  jumpMaiProductos(): void {
     this.router.navigate(['/mainProductos']);
+  }
+
+  jumpMaiVentas(): void {
+    this.router.navigate(['/mainVentas']);
+  }
+
+  jumpMaiVendedores(): void {
+    this.router.navigate(['/mainVendedores']);
+  }
+  
+  jumpMaiClientes(): void {
+    this.router.navigate(['/mainClientes']);
+  }
+
+  jumpMaiProveedores(): void {
+    this.router.navigate(['/mainProveedores']);
   }
 }

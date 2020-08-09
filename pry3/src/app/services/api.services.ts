@@ -10,7 +10,7 @@ import gql from 'graphql-tag';
 export class ApiService {
     constructor(private apollo: Apollo) { }
 
-    getProductos() {
+    getPersons() {
         return this.apollo
         .watchQuery(
           {
@@ -32,7 +32,66 @@ export class ApiService {
             fetchPolicy: 'network-only'
           }
         ).valueChanges.pipe(map((result: any) => {
+            console.log({result});
           return result.data.persons;
+        }));
+      }
+
+      getProductos() {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{productos {
+                ProductID
+                ProductName
+                ProductNumber
+                UnitPrice
+                Color
+                ProductLine
+                Style
+                SellStartDate
+                SellEndDate
+                Size
+                SubCategory
+                CategoryName
+                ProductModel
+                Quantity
+                LocationName
+            }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+            console.log({result});
+          return result.data.productos;
+        }));
+      }
+
+      getTopProducto() {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{productos {
+                ProductID
+                ProductName
+                ProductNumber
+                UnitPrice
+                Color
+                ProductLine
+                Style
+                SellStartDate
+                SellEndDate
+                Size
+                SubCategory
+                CategoryName
+                ProductModel
+                Quantity
+                LocationName
+            }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+            console.log({result});
+          return result.data.productos;
         }));
       }
 }

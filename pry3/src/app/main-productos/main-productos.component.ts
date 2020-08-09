@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { ApiService } from '../services/api.services'
-import { Persons } from '../services/models/persons.models'
+import { ApiService } from '../services/api.services';
+import { Productos } from '../services/models/productos.models';
 
 @Component({
   selector: 'app-main-productos',
@@ -11,7 +11,7 @@ import { Persons } from '../services/models/persons.models'
 export class MainProductosComponent implements OnInit {
   public lst: any[] = ['xd', 'xd1', 'xd2', 'xd3', 'x4'];
   public columnas: string[] = ['id', 'nombre', 'actions'];
-  public person: Persons[];
+  public person: Productos[];
   loading: boolean;
 
   constructor(private api: ApiService) {}
@@ -25,11 +25,11 @@ export class MainProductosComponent implements OnInit {
   }
 
   getProductos() {
-    this.api.getProductos().subscribe((result: Persons[]) => {
+    this.api.getProductos().subscribe((result: Productos[]) => {
         this.person = result;
         this.loading = false;
       });
-     // console.log(this.person);
+     console.log(this.person);
   }
 
   initChart(): void {
