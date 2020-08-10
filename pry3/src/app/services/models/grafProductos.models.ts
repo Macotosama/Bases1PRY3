@@ -1,4 +1,4 @@
-export interface TopProductos {
+export interface TopProduc {
     ProductID: number;
     ProductName: string;
     ProductNumber: string;
@@ -12,4 +12,13 @@ export interface TopProductos {
     SubCategory: string;
     CategoryName: string;
     ProductModel: string;
+}
+
+export interface LocalesProd {
+    LocationName: string
+}
+
+export interface ResultFiltPro {
+    Name: string;
+    Quantity: number;
 }

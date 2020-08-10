@@ -32,7 +32,7 @@ export class ApiService {
             fetchPolicy: 'network-only'
           }
         ).valueChanges.pipe(map((result: any) => {
-            console.log({result});
+            //console.log({result});
           return result.data.persons;
         }));
       }
@@ -61,7 +61,7 @@ export class ApiService {
             fetchPolicy: 'network-only'
           }
         ).valueChanges.pipe(map((result: any) => {
-            console.log({result});
+            //console.log({result});
           return result.data.productos;
         }));
       }
@@ -70,28 +70,57 @@ export class ApiService {
         return this.apollo
         .watchQuery(
           {
-            query: gql`{productos {
-                ProductID
-                ProductName
-                ProductNumber
-                UnitPrice
-                Color
-                ProductLine
-                Style
-                SellStartDate
-                SellEndDate
-                Size
-                SubCategory
-                CategoryName
-                ProductModel
-                Quantity
-                LocationName
+            query: gql`{topProductosMejoresVendidos {
+              ProductID
+              ProductName
+              ProductNumber
+              UnitPrice
+              Color
+              ProductLine
+              Style
+              SellStartDate
+              SellEndDate
+              Size
+              SubCategory
+              CategoryName
+              ProductModel
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+            //console.log({result});
+          return result.data.topProductosMejoresVendidos;
+        }));
+      }
+
+      getLocalProd() {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{ locaciones { 
+              LocationName
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+            //console.log({result});
+          return result.data.locaciones;
+        }));
+      }
+
+      getFilProd(fill: string) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{optenerlocaciones(LocationName: "${fill}"){
+              Name
+              Quantity
             }}`,
             fetchPolicy: 'network-only'
           }
         ).valueChanges.pipe(map((result: any) => {
-            console.log({result});
-          return result.data.productos;
+           // console.log({result});
+          return result.data.optenerlocaciones;
         }));
       }
 }

@@ -24,6 +24,7 @@ import { MainClientesComponent } from './main-clientes/main-clientes.component';
 import { MainProveedoresComponent } from './main-proveedores/main-proveedores.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatTableModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
