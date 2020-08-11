@@ -16,19 +16,24 @@ export class MainProductosComponent implements OnInit {
   public columnas: string[] = ['id', 'nombre', 'stack'];
   public productos: Productos[];
   public topProduc: TopProduc[];
+  public notTopProduc: TopProduc[];
   public localProduc: LocalesProd[];
   public resulF: ResultFiltPro[];
+  public labels2: string[] = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+  public datos2: number[] = [12, 19, 3, 5, 2, 3];
+  public graf: Chart[] = [];
+  public sss: Chart;
   loading: boolean;
 
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {
+    this.getNotTopProductos();
     this.getTopProductos();
     this.getLocalProd();
     //this.initChart();
     this.initChart2();
-    this.initChart3();
-    this.initChart4();
+    //this.initChart3();
   }
 
   getProductos() {
@@ -49,6 +54,16 @@ export class MainProductosComponent implements OnInit {
     // console.log(this.person);
   }
 
+  getNotTopProductos() {
+    this.api.getNoTopProducto().subscribe((result: TopProduc[]) => {
+        (this.notTopProduc = result);
+       // console.log(this.notTopProduc);
+        this.loading = false;
+        this.initChart3();
+      });
+    // console.log(this.person);
+  }
+
   getLocalProd() {
     this.api.getLocalProd().subscribe((result: LocalesProd[]) => {
         this.localProduc = result;
@@ -59,17 +74,22 @@ export class MainProductosComponent implements OnInit {
   }
 
   getFilProd(fil: string) {
-    console.log(fil);
+   // console.log(fil);
     this.api.getFilProd(fil).subscribe((result: ResultFiltPro[]) => {
         this.resulF = result;
-        console.log(this.resulF);
+        this.labels2=[this.resulF[4].Name, this.resulF[1].Name,this.resulF[5].Name, this.resulF[3].Name,this.resulF[0].Name, this.resulF[2].Name];
+        this.datos2=[this.resulF[4].Quantity, this.resulF[1].Quantity, this.resulF[5].Quantity, this.resulF[3].Quantity,this.resulF[0].Quantity, this.resulF[2].Quantity];
+        this.sss.chart.data.labels = this.labels2;
+        this.sss.chart.data.datasets.forEach((dataset) => {
+            dataset.data = this.datos2;
+        });
+        this.sss.update();
         this.loading = false;
       });
   }
-
   initChart(): void {
     var ctx = document.getElementById('ventas');
-    var myChart = new Chart(ctx, {
+    this.graf.push( new Chart(ctx, {
         type: 'line',
         data: {
             labels: [this.topProduc[4].ProductName, this.topProduc[1].ProductName,
@@ -108,18 +128,18 @@ export class MainProductosComponent implements OnInit {
                 }]
             }
         }
-    });
+    }));
   }
 
   initChart2(): void {
     var ctx = document.getElementById('ventas2');
-    var myChart = new Chart(ctx, {
-        type: 'line',
+    this.sss = ( new Chart(ctx, {
+        type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: this.labels2,
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: '# de stacks',
+                data: this.datos2,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -148,58 +168,22 @@ export class MainProductosComponent implements OnInit {
                 }]
             }
         }
-    });
+    }));
   }
 
   initChart3(): void {
     var ctx = document.getElementById('ventas3');
     var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: [this.notTopProduc[4].ProductName, this.notTopProduc[1].ProductName,
+            this.notTopProduc[5].ProductName, this.notTopProduc[3].ProductName,
+            this.notTopProduc[0].ProductName, this.notTopProduc[2].ProductName],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-  }
-
-  initChart4(): void {
-    var ctx = document.getElementById('ventas4');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [this.notTopProduc[4].UnitPrice, this.notTopProduc[1].UnitPrice,
+                this.notTopProduc[5].UnitPrice, this.notTopProduc[3].UnitPrice,
+                this.notTopProduc[0].UnitPrice, this.notTopProduc[2].UnitPrice],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

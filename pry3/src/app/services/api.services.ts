@@ -93,6 +93,33 @@ export class ApiService {
         }));
       }
 
+      getNoTopProducto() {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{topProductosPeorVendidos {
+              ProductID
+              ProductName
+              ProductNumber
+              UnitPrice
+              Color
+              ProductLine
+              Style
+              SellStartDate
+              SellEndDate
+              Size
+              SubCategory
+              CategoryName
+              ProductModel
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+            //console.log(result);
+          return result.data.topProductosPeorVendidos;
+        }));
+      }
+
       getLocalProd() {
         return this.apollo
         .watchQuery(

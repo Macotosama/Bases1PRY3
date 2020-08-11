@@ -2,7 +2,7 @@
     <mat-card class="ventasxAnio">
         <mat-card-header>
           <mat-card-title>Productos</mat-card-title>
-          <mat-card-subtitle>vendidos</mat-card-subtitle>
+          <mat-card-subtitle>más vendidos</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <canvas width="500" height="400" class="canvas" id="ventas"></canvas>
@@ -11,8 +11,8 @@
 
       <mat-card class="ventasxAnio2">
         <mat-card-header>
-          <mat-card-title>Ventas2</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
+          <mat-card-title>Productos</mat-card-title>
+          <mat-card-subtitle>por sucursales</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <canvas width="500" height="400" class="canvas" id="ventas2"></canvas>
@@ -21,26 +21,16 @@
 
       <mat-card class="ventasxAnio3">
         <mat-card-header>
-          <mat-card-title>Ventas3</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
+          <mat-card-title>Productos</mat-card-title>
+          <mat-card-subtitle>menos vendidos</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <canvas width="500" height="400" class="canvas" id="ventas3"></canvas>
         </mat-card-content>
       </mat-card>
-    
-      <mat-card class="ventasxAnio4">
-        <mat-card-header>
-          <mat-card-title>Ventas4</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <canvas width="500" height="400" class="canvas" id="ventas4"></canvas>
-        </mat-card-content>
-      </mat-card>
 
     <div class="Botunis">
-      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <button mat-button [matMenuTriggerFor]="menu">Locales</button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item *ngFor="let local of localProduc"
         (click)="getFilProd(local.LocationName)">{{local.LocationName}}</button>
