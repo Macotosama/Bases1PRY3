@@ -403,4 +403,21 @@ export class ApiService {
           return result.data.proveedores;
         }));
       }
+
+      getpAuidi() {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{auditorias{
+              idAuditoria
+              Accion
+              Fecha
+              Mensaje}}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          //console.log(result);
+          return result.data.auditorias;
+        }));
+      }
 }

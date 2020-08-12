@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogloginComponent } from '../dialoglogin/dialoglogin.component'
+import { DialogloginComponent } from '../dialoglogin/dialoglogin.component';
+import { ApiService } from '../services/api.services';
+import { Auditoria } from '../services/models/audi.models';
+import { TopProduc } from '../services/models/grafProductos.models';
 
 @Component({
   selector: 'app-home',
@@ -11,23 +14,50 @@ import { DialogloginComponent } from '../dialoglogin/dialoglogin.component'
 export class HomeComponent implements OnInit {
     readonly with: string = '235px';
     readonly height: string = '300px';
+    public columnas: string[] = ['idAuditoria', 'Accion', 'Fecha', 'Mensaje']
+    public jaimi: Auditoria[];
+    public topProduc: TopProduc[];
+    public graf: Chart[] = [];
     constructor(
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        private api: ApiService
     ) { }
 
     ngOnInit(): void {
-        this.initChart();
+        this.getpAuidi();
+        this.getTopProductos() ;
     }
 
-    initChart(): void {
+    getTopProductos() {
+        this.api.getTopProducto().subscribe((result: TopProduc[]) => {
+            this.topProduc = result;
+            //console.log(this.topProduc);
+            this.initChart();
+          });
+        // console.log(this.person);
+      }
+
+    getpAuidi() {
+        this.api.getpAuidi().subscribe((result: Auditoria[]) => {
+            this.jaimi = result;
+            //console.log(this.jaimi);
+          });
+      }
+    
+
+      initChart(): void {
         var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
+        this.graf.push( new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: [this.topProduc[4].ProductName, this.topProduc[1].ProductName,
+                this.topProduc[5].ProductName, this.topProduc[3].ProductName,
+                this.topProduc[0].ProductName, this.topProduc[2].ProductName],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'precios',
+                    data: [this.topProduc[4].UnitPrice, this.topProduc[1].UnitPrice,
+                    this.topProduc[5].UnitPrice, this.topProduc[3].UnitPrice,
+                    this.topProduc[0].UnitPrice, this.topProduc[2].UnitPrice],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -56,8 +86,8 @@ export class HomeComponent implements OnInit {
                     }]
                 }
             }
-        });
-    }
+        }));
+      }
 
     login(): void {
         const dialogRef = this.dialog.open(DialogloginComponent, {

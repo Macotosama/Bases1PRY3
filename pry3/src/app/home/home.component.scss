@@ -44,6 +44,11 @@ mat-card-subtitle {
     left: 2em;
 }
 
+td {
+  background-color: #424242;
+  color: #ffffff;
+}
+
 .ventasxAnio {
     width: 500px;
     height: 500px;
@@ -61,9 +66,14 @@ mat-card-subtitle {
     color: #ffffff;
     top: -53.7%;
     left: 52.6%;
+    overflow: auto;
 }
 
 body {
     height: 860px;
     background-color: #212121;
+}
+
+.mat-elevation-z4 {
+  width: 800px;
 }
