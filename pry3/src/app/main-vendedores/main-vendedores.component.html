@@ -1,62 +1,232 @@
 <body>
     <mat-card class="ventasxAnio">
         <mat-card-header>
-          <mat-card-title>Ventas</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
+          <mat-card-title>Recursos</mat-card-title>
+          <mat-card-subtitle>humanos</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <canvas width="500" height="400" class="canvas" id="ventas"></canvas>
+          <table mat-table [dataSource] = 'peras' class="mat-elevation-z4">
+            <ng-container matColumnDef = "id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{  element.BusinessEntityID }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef = "nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{ element.FirstName }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef = "actions">
+                <th mat-header-cell *matHeaderCellDef>Apellido</th>
+                <td mat-cell *matCellDef="let element">{{ element.LastName }}</td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="columnas2"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnas2"></tr>
+        </table>
         </mat-card-content>
       </mat-card>
 
       <mat-card class="ventasxAnio2">
         <mat-card-header>
-          <mat-card-title>Ventas2</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
+          <mat-card-title>Busqueda</mat-card-title>
+          <mat-card-subtitle>por ID en recursos humanos</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-          <canvas width="500" height="400" class="canvas" id="ventas2"></canvas>
+        <mat-card-actions>
+          <mat-form-field>
+            <mat-label class="BBLIN">ID</mat-label>
+            <input [(ngModel)]="holis" maxlength="50" matInput (keypress)="handleKeyboardEvent($event)">
+        </mat-form-field>
+        <button mat-stroked-button (click)="getMemes()" class="loginRegister" class="anime">Buscar</button>
+        </mat-card-actions>
+        <mat-card-content class=loven>
+          <table mat-table [dataSource] = 'jaimi' class="mat-elevation-z5">
+            <ng-container matColumnDef = "id">
+                <th mat-header-cell *matHeaderCellDef>Departamento</th>
+                <td mat-cell *matCellDef="let element">{{  element.DeparmentiD }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef = "jt">
+                <th mat-header-cell *matHeaderCellDef>Trabajo</th>
+                <td mat-cell *matCellDef="let element">{{ element.jobTitle }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef = "bs">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{ element.BusinessEntityID }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "n">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element">{{ element.Nombre }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef = "sn">
+            <th mat-header-cell *matHeaderCellDef>Apellido 1</th>
+            <td mat-cell *matCellDef="let element">{{ element.SegundoNombre }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef = "a">
+            <th mat-header-cell *matHeaderCellDef>Apellido 2</th>
+            <td mat-cell *matCellDef="let element">{{ element.Apellido }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef = "sts">
+            <th mat-header-cell *matHeaderCellDef>Inicio turno</th>
+            <td mat-cell *matCellDef="let element">{{ element.startTimeShift }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef = "ets">
+            <th mat-header-cell *matHeaderCellDef>Final turno</th>
+            <td mat-cell *matCellDef="let element">{{ element.endTimeShift }}</td>
+          </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="columnas3"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnas3"></tr>
+        </table>
         </mat-card-content>
       </mat-card>
 
       <mat-card class="ventasxAnio3">
         <mat-card-header>
-          <mat-card-title>Ventas3</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
+          <mat-card-title>Busqueda</mat-card-title>
+          <mat-card-subtitle>por ID para vendedores</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-          <canvas width="500" height="400" class="canvas" id="ventas3"></canvas>
-        </mat-card-content>
-      </mat-card>
+        <mat-card-actions>
+        <mat-form-field>
+            <mat-label class="BBLIN">Nombre</mat-label>
+            <input [(ngModel)]="nombre" maxlength="50" matInput>
+        </mat-form-field>
+        <button mat-stroked-button (click)="getMemes2()" class="loginRegister" class="anime">Buscar</button>
+        </mat-card-actions>
+        <mat-card-content class=loven>
+          <table mat-table [dataSource] = 'jaimi2' class="mat-elevation-z5">
+            <ng-container matColumnDef = "id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{  element.BusinessEntityID }}</td>
+            </ng-container>
     
-      <mat-card class="ventasxAnio4">
-        <mat-card-header>
-          <mat-card-title>Ventas4</mat-card-title>
-          <mat-card-subtitle>por año</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <canvas width="500" height="400" class="canvas" id="ventas4"></canvas>
+            <ng-container matColumnDef = "nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{ element.FullName }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef = "depa">
+                <th mat-header-cell *matHeaderCellDef>Departamento</th>
+                <td mat-cell *matCellDef="let element">{{ element.DepartmentName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "gene">
+              <th mat-header-cell *matHeaderCellDef>Genero</th>
+              <td mat-cell *matCellDef="let element">{{ element.Gender }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "grup">
+              <th mat-header-cell *matHeaderCellDef>Grupo</th>
+              <td mat-cell *matCellDef="let element">{{ element.GroupName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "lvl">
+              <th mat-header-cell *matHeaderCellDef>Nivel</th>
+              <td mat-cell *matCellDef="let element">{{ element.OrganizationLevel }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "fre">
+              <th mat-header-cell *matHeaderCellDef>Frecuencia pago</th>
+              <td mat-cell *matCellDef="let element">{{ element.PayFrequency }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "tar">
+              <th mat-header-cell *matHeaderCellDef>Tarifa</th>
+              <td mat-cell *matCellDef="let element">{{ element.Rate }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "VenA">
+              <th mat-header-cell *matHeaderCellDef>Ventas año<br>pasado</th>
+              <td mat-cell *matCellDef="let element">{{ element.SalesLastYear }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "venQ">
+              <th mat-header-cell *matHeaderCellDef>Cuota de ventas</th>
+              <td mat-cell *matCellDef="let element">{{ element.SalesQuota }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "HE">
+              <th mat-header-cell *matHeaderCellDef>Horas por<br>enfemedad</th>
+              <td mat-cell *matCellDef="let element">{{ element.SickLeaveHours }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "vaca">
+              <th mat-header-cell *matHeaderCellDef>Horas para<br>vacaciones</th>
+              <td mat-cell *matCellDef="let element">{{ element.VacationHours }}</td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+        </table>
         </mat-card-content>
       </mat-card>
 
       <div>
-        <table mat-table [dataSource] = 'lst' class="mat-elevation-z4">
+        <table mat-table [dataSource] = 'vendores' class="mat-elevation-z4">
             <ng-container matColumnDef = "id">
-                <th mat-header-cell *matHeaderCellDef>#</th>
-                <td mat-cell *matCellDef="let element">{{  element }}</td>
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{  element.BusinessEntityID }}</td>
             </ng-container>
     
             <ng-container matColumnDef = "nombre">
-                <th mat-header-cell *matHeaderCellDef>nombre</th>
-                <td mat-cell *matCellDef="let element">{{ element }}</td>
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{ element.FullName }}</td>
             </ng-container>
     
-            <ng-container matColumnDef = "actions">
-                <th mat-header-cell *matHeaderCellDef>Acciones</th>
-                <td mat-cell *matCellDef="let element">
-                    <button (click)="openEdit(element)" mat-raised-button color="basic">Editar</button> |
-                    <button (click)="delete(element)" mat-raised-button color="warn">Eliminar</button>
-                </td>
+            <ng-container matColumnDef = "depa">
+                <th mat-header-cell *matHeaderCellDef>Departamento</th>
+                <td mat-cell *matCellDef="let element">{{ element.DepartmentName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "gene">
+              <th mat-header-cell *matHeaderCellDef>Genero</th>
+              <td mat-cell *matCellDef="let element">{{ element.Gender }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "grup">
+              <th mat-header-cell *matHeaderCellDef>Grupo</th>
+              <td mat-cell *matCellDef="let element">{{ element.GroupName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "lvl">
+              <th mat-header-cell *matHeaderCellDef>Nivel</th>
+              <td mat-cell *matCellDef="let element">{{ element.OrganizationLevel }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "fre">
+              <th mat-header-cell *matHeaderCellDef>Frecuencia pago</th>
+              <td mat-cell *matCellDef="let element">{{ element.PayFrequency }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "tar">
+              <th mat-header-cell *matHeaderCellDef>Tarifa</th>
+              <td mat-cell *matCellDef="let element">{{ element.Rate }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "VenA">
+              <th mat-header-cell *matHeaderCellDef>Ventas año<br>pasado</th>
+              <td mat-cell *matCellDef="let element">{{ element.SalesLastYear }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "venQ">
+              <th mat-header-cell *matHeaderCellDef>Cuota de ventas</th>
+              <td mat-cell *matCellDef="let element">{{ element.SalesQuota }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "HE">
+              <th mat-header-cell *matHeaderCellDef>Horas por<br>enfemedad</th>
+              <td mat-cell *matCellDef="let element">{{ element.SickLeaveHours }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef = "vaca">
+              <th mat-header-cell *matHeaderCellDef>Horas para<br>vacaciones</th>
+              <td mat-cell *matCellDef="let element">{{ element.VacationHours }}</td>
             </ng-container>
     
             <tr mat-header-row *matHeaderRowDef="columnas"></tr>

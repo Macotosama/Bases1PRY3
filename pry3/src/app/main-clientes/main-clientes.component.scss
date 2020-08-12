@@ -6,6 +6,15 @@
     color: #ffffff;
     top: 5em;
     left: 8.4%;
+    overflow: auto;
+}
+
+.BBLIN {
+    color: white;
+}
+
+.anime {
+    background-color: #5a5a5a;
 }
 
 .ventasxAnio2 {
@@ -28,6 +37,11 @@
     left: 8.4%;
 }
 
+.tablas {
+    height: 500px;
+    overflow: auto;
+}
+
 .ventasxAnio4 {
     width: 500px;
     height: 500px;
@@ -45,6 +59,7 @@ div {
    // width: 100%;
     top: -830px;
     left: 0%;
+    overflow: auto;
 }
 
 table {

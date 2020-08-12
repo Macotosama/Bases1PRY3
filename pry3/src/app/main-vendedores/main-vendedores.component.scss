@@ -1,3 +1,14 @@
+.BBLIN {
+    color: white;
+}
+
+.anime {
+    background-color: #5a5a5a;
+}
+
+.mat-elevation-z5 {
+    width: 800px;
+}
 .ventasxAnio {
     position: relative;
     width: 500px;
@@ -6,6 +17,7 @@
     color: #ffffff;
     top: 5em;
     left: 8.4%;
+    overflow: auto;
 }
 
 .ventasxAnio2 {
@@ -16,6 +28,7 @@
     color: #ffffff;
     top: -462px;
     left: 50%;
+    overflow: auto;
 }
 
 .ventasxAnio3 {
@@ -26,6 +39,7 @@
     color: #ffffff;
     top: -400px;;
     left: 8.4%;
+    overflow: auto;
 }
 
 .ventasxAnio4 {
@@ -42,8 +56,7 @@ mat-card-subtitle {
 
 div {
     position: relative;
-   // width: 100%;
-    top: -830px;
+    top: -370px;
     left: 0%;
 }
 
@@ -55,3 +68,18 @@ td {
     background-color: #424242;
     color: #ffffff;
 }
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border-radius: 1px !important;
+    border: 1px solid  red;
+    border-left:none;
+  }
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border-radius: 1px !important;
+    border: 1px solid red;
+    border-right:none;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-gap {
+    border-radius: 1px !important;
+    border-bottom: 1px solid   red;
+  }

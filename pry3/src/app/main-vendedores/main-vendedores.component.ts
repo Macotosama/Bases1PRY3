@@ -1,178 +1,80 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ApiService } from '../services/api.services';
+import { Vendedor } from '../services/models/vendedores.models';
+import { Peras } from '../services/models/vendedores.models';
+import { Jaimicos } from '../services/models/vendedores.models'
 
 @Component({
   selector: 'app-main-vendedores',
   templateUrl: './main-vendedores.component.html',
-  styleUrls: ['./main-vendedores.component.scss']
+  styleUrls: ['./main-vendedores.component.scss'],
 })
 export class MainVendedoresComponent implements OnInit {
+    public nombre: string = '';
+    public apellido: string = '';
+    public genero: string = '';
+    public id: number;
+    public keyPres: string;
+    public holis: number;
+    public loading: boolean = true;
     public lst: any[] = ['xd', 'xd1', 'xd2', 'xd3', 'x4'];
-    public columnas: string[] = ['id', 'nombre', 'actions'];
+    public columnas3: string[] = ['id', 'jt', 'bs', 'n', 'sn', 'a', 'sts', 'ets'];
+    public columnas: string[] = ['id', 'nombre', 'depa', 'gene', 'grup', 'lvl', 'fre', 'tar',
+    'VenA', 'venQ', 'HE', 'vaca'];
+    public columnas2: string[] = ['id', 'nombre', 'actions'];
+    public vendores: Vendedor[];
+    public peras: Peras[];
+    public jaimi: Jaimicos[];
+    public jaimi2: Vendedor[];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.getVendedores();
+    this.getPeras();
   }
 
-  initChart(): void {
-    var ctx = document.getElementById('ventas');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+  getMemes() {
+    this.api.getMemes(this.holis).subscribe((result: Jaimicos[]) => {
+        this.jaimi = result;
+        this.loading = false;
+        //console.log(this.jaimi);
+      });
   }
 
-  initChart2(): void {
-    var ctx = document.getElementById('ventas2');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+  getMemes2() {
+    this.api.getMemes2(this.nombre).subscribe((result: Vendedor[]) => {
+        this.jaimi2 = result;
+        this.loading = false;
+        console.log(this.jaimi2);
+      });
   }
 
-  initChart3(): void {
-    var ctx = document.getElementById('ventas3');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+  getVendedores() {
+    this.api.getVendedor().subscribe((result: Vendedor[]) => {
+        this.vendores = result;
+        this.loading = false;
+        //console.log(this.vendores);
+      });
   }
 
-  initChart4(): void {
-    var ctx = document.getElementById('ventas4');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+  getPeras() {
+    this.api.getAnanin().subscribe((result: Peras[]) => {
+        this.peras = result;
+        this.loading = false;
+        //console.log(this.peras);
+      });
+  }
+
+  handleKeyboardEvent(event: KeyboardEvent) { 
+    this.keyPres = event.key;
+    var numeros="0123456789";
+    var especiales="8-37-38-46";
+    var tecladoespecial = false;
+    if (numeros.includes(this.keyPres) || especiales.includes(this.keyPres)) {
+      tecladoespecial = true;
+    }
+    return tecladoespecial;
   }
 }

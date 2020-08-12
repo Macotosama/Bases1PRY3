@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ApiService } from '../services/api.services';
+import { Persons } from '../services/models/persons.models'
 
 @Component({
   selector: 'app-main-clientes',
@@ -8,12 +9,26 @@ import { ApiService } from '../services/api.services';
   styleUrls: ['./main-clientes.component.scss']
 })
 export class MainClientesComponent implements OnInit {
-  public lst: any[] = ['xd', 'xd1', 'xd2', 'xd3', 'x4'];
-  public columnas: string[] = ['id', 'nombre', 'actions'];
+    public id: number;
+    public name: string;
+    public last: string;
+    public produc: string;
+    public lst: any[] = ['xd', 'xd1', 'xd2', 'xd3', 'x4'];
+    public columnas: string[] = ['id', 'nombre', 'apellido1', 'apellido2', 'EP',
+        'PS', 'NS'];
+    public person: Persons[];
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+      this.getCLiente() ;
+  }
+
+  getCLiente() {
+    this.api.getCLiente().subscribe((result: Persons[]) => {
+        this.person = result;
+        console.log(this.person);
+    });
   }
 
   initChart(): void {
