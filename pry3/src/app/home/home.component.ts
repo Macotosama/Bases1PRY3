@@ -5,6 +5,7 @@ import { DialogloginComponent } from '../dialoglogin/dialoglogin.component';
 import { ApiService } from '../services/api.services';
 import { Auditoria } from '../services/models/audi.models';
 import { TopProduc } from '../services/models/grafProductos.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
     public graf: Chart[] = [];
     constructor(
         public dialog: MatDialog,
-        private api: ApiService
+        private api: ApiService,
+        private router:Router
     ) { }
 
     ngOnInit(): void {
@@ -90,12 +92,7 @@ export class HomeComponent implements OnInit {
       }
 
     login(): void {
-        const dialogRef = this.dialog.open(DialogloginComponent, {
-            width: this.with, height: this.height, backdropClass: 'backdropBackground'
-          })
-          dialogRef.afterClosed().subscribe(result => {
-            if(result){}
-        });
+        this.router.navigate(['/mainMenu']);
     }
 
 }
