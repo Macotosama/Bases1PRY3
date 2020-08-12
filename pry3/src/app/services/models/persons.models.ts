@@ -13,3 +13,7 @@ export interface Persons {
   	rowguid: string;
     ModifiedData: string;
 }
+
+export interface Mensaje {
+  info: string;
+}

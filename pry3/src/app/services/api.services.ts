@@ -337,11 +337,11 @@ export class ApiService {
         }));
       }
 
-      getMEmeme(ID: number, produc: string, name1: string, last: string) {
+      getMEmeme(name1: string) {
         return this.apollo
         .watchQuery(
           {
-            query: gql`{optenerProcPersosnCustomer(PersonID: ${ID} ,ProductName: ${produc} ,FirstName: ${name1}, LastName: ${last}) {
+            query: gql`{optenerProcPersosnCustomer(FullName: "${name1}"){
               BusinessEntityID 
               PersonType
               NameStyle
@@ -360,7 +360,47 @@ export class ApiService {
           }
         ).valueChanges.pipe(map((result: any) => {
            // console.log({result});
-          return result.data.persons;
+          return result.data.optenerProcPersosnCustomer;
+        }));
+      }
+
+      insertCard(name1: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{mensajes(Identificador: ${name1}){
+              info
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          return result.data.mensajes;
+        }));
+      }
+
+      getProveedores() {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{proveedores{
+              BusinessEntityID
+              Name
+              PurchasingWebServiceURL 
+              MaxOrderQty        
+              MinOrderQty
+              StandardPrice
+              Product
+              ProductCategory
+              OrderQty
+              RejectedQty
+              ReceivedQty
+              StockedQty
+              SubTotal
+              }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          return result.data.proveedores;
         }));
       }
 }

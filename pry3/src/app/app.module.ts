@@ -26,6 +26,7 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { FormsModule } from '@angular/forms';
     GraphQLModule,
     HttpClientModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

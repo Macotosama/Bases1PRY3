@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ApiService } from '../services/api.services';
-import { Persons } from '../services/models/persons.models'
+import { Persons } from '../services/models/persons.models';
+import { Mensaje } from '../services/models/persons.models';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-main-clientes',
@@ -10,6 +12,7 @@ import { Persons } from '../services/models/persons.models'
 })
 export class MainClientesComponent implements OnInit {
     public id: number;
+    public id2: number;
     public name: string;
     public last: string;
     public produc: string;
@@ -17,17 +20,37 @@ export class MainClientesComponent implements OnInit {
     public columnas: string[] = ['id', 'nombre', 'apellido1', 'apellido2', 'EP',
         'PS', 'NS'];
     public person: Persons[];
+    public person2: Persons[];
+    public kk: Mensaje;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,
+    public snackBar: MatSnackBar,) { }
 
   ngOnInit(): void {
       this.getCLiente() ;
   }
 
+  insertCard() {
+    this.api.insertCard(this.id).subscribe((result: Mensaje) => {
+        this.kk = result;
+        this.snackBar.open('Se inserto correctamente', '',{
+            duration: 2000
+          });
+        this.id = null;
+        this.id2 = null;
+    });
+  }
+
+  getMEmeme() {
+    this.api.getMEmeme(this.name).subscribe((result: Persons[]) => {
+        this.person2 = result;
+        this.name = '';
+    });
+  }
+
   getCLiente() {
     this.api.getCLiente().subscribe((result: Persons[]) => {
         this.person = result;
-        console.log(this.person);
     });
   }
 

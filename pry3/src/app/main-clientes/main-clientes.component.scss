@@ -17,6 +17,10 @@
     background-color: #5a5a5a;
 }
 
+.mat-elevation-3 {
+    width: 700px;
+}
+
 .ventasxAnio2 {
     position: relative;
     width: 500px;
@@ -56,8 +60,7 @@ mat-card-subtitle {
 
 div {
     position: relative;
-   // width: 100%;
-    top: -830px;
+    top: -370px;
     left: 0%;
     overflow: auto;
 }
