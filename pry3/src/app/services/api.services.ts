@@ -420,4 +420,18 @@ export class ApiService {
           return result.data.auditorias;
         }));
       }
+
+      eliminartCard(name1: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{noborrados (Identificador: ${name1}){
+              info
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          return result.data.mensajes;
+        }));
+      }
 }

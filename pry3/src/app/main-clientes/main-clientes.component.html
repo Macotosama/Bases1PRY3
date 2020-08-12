@@ -57,7 +57,7 @@
 
       <mat-card class="ventasxAnio2">
         <mat-card-header>
-          <mat-card-title>Insetar</mat-card-title>
+          <mat-card-title>Insetar y eliminar</mat-card-title>
           <mat-card-subtitle>numero de tarjeta</mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
@@ -65,8 +65,13 @@
             <mat-label class="BBLIN">ID</mat-label>
             <input maxlength="50" matInput [(ngModel)]=id>
         </mat-form-field>
-
-        <button mat-stroked-button class="loginRegister" (click)="insertCard()" class="anime">Buscar</button>
+        <button mat-stroked-button class="loginRegister" (click)="insertCard()" class="anime">Insertar</button>
+        <br><br>
+        <mat-form-field>
+          <mat-label class="BBLIN">ID</mat-label>
+          <input maxlength="50" matInput [(ngModel)]=id2>
+      </mat-form-field>
+      <button mat-stroked-button class="loginRegister" (click)="eliminartCard()" class="anime">Eliminar</button>
         </mat-card-actions>
         <mat-card-content>
           <canvas width="500" height="400" class="canvas" id="ventas2"></canvas>

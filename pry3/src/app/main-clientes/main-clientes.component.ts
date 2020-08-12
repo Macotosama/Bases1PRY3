@@ -34,7 +34,19 @@ export class MainClientesComponent implements OnInit {
     this.api.insertCard(this.id).subscribe((result: Mensaje) => {
         this.kk = result;
         this.snackBar.open('Se inserto correctamente', '',{
-            duration: 2000
+            duration: 3000
+          });
+        this.id = null;
+        this.id2 = null;
+    });
+  }
+
+
+  eliminartCard() {
+    this.api.eliminartCard(this.id2).subscribe((result: Mensaje) => {
+        this.kk = result;
+        this.snackBar.open('No se puede borrar en tiempos de Covid-19, :)', '',{
+            duration: 3000
           });
         this.id = null;
         this.id2 = null;
