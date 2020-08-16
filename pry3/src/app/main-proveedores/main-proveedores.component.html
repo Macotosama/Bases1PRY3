@@ -4,7 +4,7 @@
       <mat-label>Nombre</mat-label>
       <input maxlength="50" matInput [(ngModel)]="name">
     </mat-form-field>
-    <button mat-raised-button>Filtrar</button>
+    <button mat-raised-button (click)="getBasicaVendor2()">Filtrar</button>
    <mat-form-field class="bblin2">
       <mat-label>Identificador</mat-label>
       <input maxlength="50" matInput [(ngModel)]="id" (keypress)="handleKeyboardEvent($event)">

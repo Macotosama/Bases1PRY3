@@ -550,6 +550,29 @@ export class ApiService {
         }));
       }
 
+
+      getBasicaVendor2(name: string) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicaVendors (Name: "${name}"){
+              BusinessEntityID
+              AccountNumber
+              Name
+              CreditRating
+              PreferredVendorStatus
+              ActiveFlag
+              PurchasingWebServiceURL
+              ModifiedDate
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          return result.data.basicaVendors;
+        }));
+      }
+
+
       getpAuidi() {
         return this.apollo
         .watchQuery(
