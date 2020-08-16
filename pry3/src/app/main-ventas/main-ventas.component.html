@@ -1,7 +1,8 @@
 <body>
+  <h1>Ventas</h1>
       <mat-card class="ventasxAnio3">
         <mat-card-header>
-          <mat-card-title>Resibos</mat-card-title>
+          <mat-card-title>Recibos</mat-card-title>
           <mat-card-subtitle>por compra de porductos</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
@@ -39,33 +40,35 @@
       <mat-card class="ventasxAnio4">
         <mat-card-header>
           <mat-card-title>Información</mat-card-title>
-          <mat-card-subtitle>de targetas</mat-card-subtitle>
+          <mat-card-subtitle>de tarjetas</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <table mat-table [dataSource]="credit" class="bbcita">
             <ng-container matColumnDef = "id">
               <th mat-header-cell *matHeaderCellDef>ID</th>
-              <td mat-cell *matCellDef="let element">{{  element.CreditCardID }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoCards(element.CreditCardID)">
+                {{  element.CreditCardID }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "nCar">
               <th mat-header-cell *matHeaderCellDef>Numero</th>
-              <td mat-cell *matCellDef="let element">{{  element.CardNumber }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoCards(element.CreditCardID)">
+                {{  element.CardNumber }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "type">
               <th mat-header-cell *matHeaderCellDef>Tipo</th>
-              <td mat-cell *matCellDef="let element">{{  element.CardType }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoCards(element.CreditCardID)">{{  element.CardType }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "month">
               <th mat-header-cell *matHeaderCellDef>Mes</th>
-              <td mat-cell *matCellDef="let element">{{  element.ExpMonth }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoCards(element.CreditCardID)">{{  element.ExpMonth }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "year">
               <th mat-header-cell *matHeaderCellDef>Año</th>
-              <td mat-cell *matCellDef="let element">{{  element.ExpMonthExpYear }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoCards(element.CreditCardID)">{{  element.ExpMonthExpYear }}</td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="columnas2"></tr>
             <tr mat-row *matRowDef="let row; columns: columnas2"></tr>
@@ -77,33 +80,38 @@
         <table mat-table [dataSource] = 'ventis' class="bbbbb">
             <ng-container matColumnDef = "id">
                 <th mat-header-cell *matHeaderCellDef>#</th>
-                <td mat-cell *matCellDef="let element">{{  element.SalesOrderID }}</td>
+                <td mat-cell *matCellDef="let element" (click)="infoVentas(element.SalesOrderID)">
+                  {{  element.SalesOrderID }}</td>
             </ng-container>
     
             <ng-container matColumnDef = "comprador">
                 <th mat-header-cell *matHeaderCellDef>Comprador</th>
-                <!--<td mat-cell *matCellDef="let element">{{ element.FullNameCustomer }}</td>-->
-                <td mat-cell *matCellDef="let element">{{ element.FullNameCustomer == null? "anonimo" : element.FullNameCustomer }}</td>
+                <td mat-cell *matCellDef="let element" (click)="infoVentas(element.SalesOrderID)">
+                  {{ element.FullNameCustomer == null? "anonimo" : element.FullNameCustomer }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "vendedor">
               <th mat-header-cell *matHeaderCellDef>Vendedor</th>
-              <td mat-cell *matCellDef="let element">{{ element.FullNameSalesPerson == nul? "anonimo" : element.FullNameSalesPerson }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoVentas(element.SalesOrderID)">
+                {{ element.FullNameSalesPerson == nul? "anonimo" : element.FullNameSalesPerson }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "precio">
               <th mat-header-cell *matHeaderCellDef>Precio</th>
-              <td mat-cell *matCellDef="let element">{{ element.UnitPrice }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoVentas(element.SalesOrderID)">
+              $ {{ element.UnitPrice }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "bonus">
               <th mat-header-cell *matHeaderCellDef>Bonus</th>
-              <td mat-cell *matCellDef="let element">{{ element.Bonus }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoVentas(element.SalesOrderID)">
+              $ {{ element.Bonus }}</td>
             </ng-container>
 
             <ng-container matColumnDef = "comision">
               <th mat-header-cell *matHeaderCellDef>Comisión</th>
-              <td mat-cell *matCellDef="let element">{{ element.CommissionPct }}</td>
+              <td mat-cell *matCellDef="let element" (click)="infoVentas(element.SalesOrderID)">
+                {{ element.CommissionPct }}%</td>
             </ng-container>
     
             <tr mat-header-row *matHeaderRowDef="columnas"></tr>

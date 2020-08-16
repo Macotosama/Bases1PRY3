@@ -21,4 +21,32 @@ export interface LocalesProd {
 export interface ResultFiltPro {
     Name: string;
     Quantity: number;
+    ProductID: number;
+}
+
+
+export interface BasicProducts{
+    ProductID: number;
+    Name: string;
+    ProductNumber: string;
+    Color: string;
+    SafetyStockLevel: number;
+    ReorderPoint: number;
+    StandardCost: number;
+    ListPrice: number;
+    Size: string;
+    SizeUnitMEasureCode: string;
+    WeightUnitMEasureCode: string;
+    Weight: number;
+    DaysToManufacture: number;
+    ProductLine: string;
+    Class: string;
+    Style: string;
+    ProductSubcategoryID: number;
+    ProductModelID: number;
+    SellStartDate: string;
+    SellEndDate: string;
+    DiscontinuedDate: string;
+    rowguid: string;
+    ModifiedDate: string;
 }

@@ -17,3 +17,12 @@ export interface Persons {
 export interface Mensaje {
   info: string;
 }
+
+export interface BasicaCustomer {
+  CustomerID: number
+  PersonID: number
+  StoreID: number
+  AccountNumber: string
+  rowguid: string
+  ModifiedDate: string
+}

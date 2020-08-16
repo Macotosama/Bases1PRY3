@@ -14,3 +14,14 @@ export interface Proveedor {
     StockedQty: number
     SubTotal: number 
 }
+
+export interface BasicaVendor {
+    BusinessEntityID: number
+    AccountNumber: string
+    Name: string
+    CreditRating: number
+    PreferredVendorStatus: number
+    ActiveFlag: number
+    PurchasingWebServiceURL: string
+    ModifiedDate: string
+}

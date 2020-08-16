@@ -1,4 +1,16 @@
-<body>
+ <body>
+   <div>
+    <mat-form-field class="bblin">
+      <mat-label>Nombre</mat-label>
+      <input maxlength="50" matInput [(ngModel)]="name">
+    </mat-form-field>
+    <button mat-raised-button>Filtrar</button>
+   <mat-form-field class="bblin2">
+      <mat-label>Identificador</mat-label>
+      <input maxlength="50" matInput [(ngModel)]="id" (keypress)="handleKeyboardEvent($event)">
+    </mat-form-field>
+    <button mat-raised-button class="bblin2" (click)="getBasicaVendor()">Filtrar</button>
+  </div>
       <div>
         <table mat-table [dataSource] = 'provee' class="mat-elevation-z4">
             <ng-container matColumnDef = "id">

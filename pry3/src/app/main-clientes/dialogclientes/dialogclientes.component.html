@@ -1,0 +1,8 @@
+<body>
+    <span>Identificación del cliente: {{infoPro.CustomerID==null? "No especificado" : infoPro.CustomerID}}</span><br>
+    <span>Identificación de persona: {{infoPro.PersonID==null? "No especificado" : infoPro.PersonID}}</span><br>
+    <span>ID de tienda: {{infoPro.StoreID==null? "No especificado" : infoPro.StoreID}}</span><br>
+    <span>Número de cuenta: {{infoPro.AccountNumber==null? "No especificado" : infoPro.AccountNumber}}</span><br>
+    <span>Ultima modificación: {{infoPro.ModifiedDate==null? "No especificado" : infoPro.ModifiedDate}}</span><br><br><br>
+    <button mat-raised-button [mat-dialog-close]="true">Aceptar</button>
+</body>

@@ -1,0 +1,17 @@
+<body>
+    <span>Número de seguimiento del operador: {{infoPro[cont].CarrierTrackingNumber==null? "No especificado" : infoPro[cont].CarrierTrackingNumber}}</span><br>
+    <span>Linea total: {{infoPro[cont].LineTotal==null? "No especificado" : infoPro[cont].LineTotal}}</span><br>
+    <span>Fecha de modificación: {{infoPro[cont].ModifiedDate==null? "No especificado" : infoPro[cont].ModifiedDate}}</span><br>
+    <span>Cantidad: {{infoPro[cont].OrderQty==null? "No especificado" : infoPro[cont].OrderQty}}</span><br>
+    <span>Identificación de producto: {{infoPro[cont].ProductID==null? "No especificado" : infoPro[cont].ProductID}}</span><br>
+    <span>ID de pedido de venta: {{infoPro[cont].SalesOrderDetailID==null? "No especificado" : infoPro[cont].SalesOrderDetailID}}</span><br>
+    <span>ID de orden de venta: {{infoPro[cont].SalesOrderID==null? "No especificado" : infoPro[cont].SalesOrderID}}</span><br>
+    <span>ID de oferta especial: {{infoPro[cont].SpecialOfferID==null? "No especificado" : infoPro[cont].SpecialOfferID}}</span><br>
+    <span>Precio unitario: $  {{infoPro[cont].UnitPrice==null? "No especificado" : infoPro[cont].UnitPrice}}</span><br>
+    <span>Descuento de precio unitario: {{infoPro[cont].UnitPriceDiscount==null? "No especificado" : infoPro[cont].UnitPriceDiscount}}%</span><br>
+    <br>
+    <br>
+    <button mat-raised-button class="1" (click)="after()">Anterior</button>
+    <button mat-raised-button class="a" [mat-dialog-close]="true">Aceptar</button>
+    <button mat-raised-button class="b" (click)="next()">Siguiente</button>
+</body>

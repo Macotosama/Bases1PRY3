@@ -1,0 +1,9 @@
+<body>
+    <span>Número de cuenta: {{infoPro.AccountNumber==null? "No especificado" : infoPro.AccountNumber}}</span><br>
+    <span>Bandera activa: {{infoPro.ActiveFlag==null? "No especificado" : infoPro.ActiveFlag}}</span><br>
+    <span>ID de entidad comercial: {{infoPro.BusinessEntityID==null? "No especificado" : infoPro.BusinessEntityID}}</span><br>
+    <span>Calificación crediticia: {{infoPro.CreditRating==null? "No especificado" : infoPro.CreditRating}}</span><br>
+    <span>Fecha de modificación: {{infoPro.ModifiedDate==null? "No especificado" : infoPro.ModifiedDate}}</span><br>
+    <span>Nombre: {{infoPro.Name==null? "No especificado" : infoPro.Name}}</span><br><br><br>
+    <button mat-raised-button [mat-dialog-close]="true">Aceptar</button>
+</body>

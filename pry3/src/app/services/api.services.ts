@@ -140,14 +140,51 @@ export class ApiService {
         .watchQuery(
           {
             query: gql`{optenerlocaciones(LocationName: "${fill}"){
+              ProductID
               Name
               Quantity
             }}`,
             fetchPolicy: 'network-only'
           }
         ).valueChanges.pipe(map((result: any) => {
-           // console.log({result});
           return result.data.optenerlocaciones;
+        }));
+      }
+
+
+      getInfoPro(fill: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicProducts(Identificador: ${fill}){
+              ProductID
+              Name
+              ProductNumber
+              Color
+              SafetyStockLevel
+              ReorderPoint
+              StandardCost
+              ListPrice
+              Size
+              SizeUnitMEasureCode
+              WeightUnitMEasureCode
+              Weight
+              DaysToManufacture
+              ProductLine
+              Class
+              Style
+              ProductSubcategoryID
+              ProductModelID
+              SellStartDate
+              SellEndDate
+              DiscontinuedDate
+              rowguid
+              ModifiedDate
+            }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          return result.data.basicProducts;
         }));
       }
 
@@ -196,6 +233,24 @@ export class ApiService {
         }));
       }
 
+      getCardsBasis(id: number) {
+        console.log(id);
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicaPersonCreditCards (CreditCardID: ${id}){
+              BusinessEntityID
+              CreditCardID
+              ModifiedDate
+              }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+            console.log(result);
+          return result.data.basicaPersonCreditCards;
+        }));
+      }
+
       ShoppingCartItem() {
         return this.apollo
         .watchQuery(
@@ -214,6 +269,32 @@ export class ApiService {
           return result.data.optenerProcShoppingCartItems;
         }));
       }
+
+      getBasicSales(id: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicaSalesOrderDetails(SalesOrderID: ${id}) {
+              SalesOrderID
+              SalesOrderDetailID
+              CarrierTrackingNumber
+              OrderQty
+              ProductID
+              SpecialOfferID
+              UnitPrice
+              UnitPriceDiscount
+              LineTotal
+              rowguid
+              ModifiedDate
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+           // console.log({result});
+          return result.data.basicaSalesOrderDetails;
+        }));
+      }
+
 
       getVendedor() {
         return this.apollo
@@ -240,6 +321,30 @@ export class ApiService {
         ).valueChanges.pipe(map((result: any) => {
            // console.log({result});
           return result.data.vendedores;
+        }));
+      }
+
+      getInfoVendedor(id: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicaSalesPersons (BusinessEntityID: ${id}){
+              BusinessEntityID
+              TerritoryID
+              SalesQuota
+              Bonus
+              CommissionPct
+              SalesYTD
+              SalesLastYear
+              rowguid
+              ModifiedDate
+              ModifiedDate
+              }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+           // console.log({result});
+          return result.data.basicaSalesPersons;
         }));
       }
 
@@ -337,6 +442,26 @@ export class ApiService {
         }));
       }
 
+      getBasicCliente(id: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicaCustomers (BusinessEntityID: ${id}){
+              CustomerID
+              PersonID
+              StoreID
+              AccountNumber
+              rowguid
+              ModifiedDate
+              }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+           // console.log({result});
+          return result.data.basicaCustomers;
+        }));
+      }
+
       getMEmeme(name1: string) {
         return this.apollo
         .watchQuery(
@@ -401,6 +526,27 @@ export class ApiService {
           }
         ).valueChanges.pipe(map((result: any) => {
           return result.data.proveedores;
+        }));
+      }
+
+      getBasicaVendor(id: number) {
+        return this.apollo
+        .watchQuery(
+          {
+            query: gql`{basicaVendors2 (BusinessEntityID: ${id}){
+              BusinessEntityID
+              AccountNumber
+              Name
+              CreditRating
+              PreferredVendorStatus
+              ActiveFlag
+              PurchasingWebServiceURL
+              ModifiedDate
+          }}`,
+            fetchPolicy: 'network-only'
+          }
+        ).valueChanges.pipe(map((result: any) => {
+          return result.data.basicaVendors2;
         }));
       }
 

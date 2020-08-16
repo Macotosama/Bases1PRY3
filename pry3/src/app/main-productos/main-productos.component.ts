@@ -5,6 +5,9 @@ import { Productos } from '../services/models/productos.models';
 import { TopProduc } from '../services/models/grafProductos.models';
 import { LocalesProd } from '../services/models/grafProductos.models';
 import { ResultFiltPro } from '../services/models/grafProductos.models';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import { BasicProducts } from '../services/models/grafProductos.models';
 
 @Component({
   selector: 'app-main-productos',
@@ -12,6 +15,7 @@ import { ResultFiltPro } from '../services/models/grafProductos.models';
   styleUrls: ['./main-productos.component.scss']
 })
 export class MainProductosComponent implements OnInit {
+  public infoPro: BasicProducts;
   public lst: any[] = ['xd', 'xd1', 'xd2', 'xd3', 'x4'];
   public columnas: string[] = ['id', 'nombre', 'stack'];
   public productos: Productos[];
@@ -23,17 +27,30 @@ export class MainProductosComponent implements OnInit {
   public datos2: number[] = [12, 19, 3, 5, 2, 3];
   public graf: Chart[] = [];
   public sss: Chart;
+    readonly with: string = '600px';
+  readonly height: string = '550px';
   loading: boolean;
 
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
     this.getNotTopProductos();
     this.getTopProductos();
     this.getLocalProd();
-    //this.initChart();
     this.initChart2();
-    //this.initChart3();
+  }
+
+  getInfoPro(a: number) {
+    this.api.getInfoPro(a).subscribe((result: BasicProducts[]) => {
+      this.infoPro = result[0];
+      const dialogRef = this.dialog.open(DialogComponent, {
+        width: this.with, height: this.height,
+        data: this.infoPro
+      })
+    });
   }
 
   getProductos() {

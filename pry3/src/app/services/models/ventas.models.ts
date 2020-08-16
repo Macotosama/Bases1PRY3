@@ -28,3 +28,23 @@ export interface ShoppingCartItem {
     DateCreated: string
     ModifiedDate: string
 }
+
+export interface BasicSalwes {
+    SalesOrderID: number
+    SalesOrderDetailID: number
+    CarrierTrackingNumber: string
+    OrderQty: number
+    ProductID: string
+    SpecialOfferID: number
+    UnitPrice: number
+    UnitPriceDiscount: number
+    LineTotal: number
+    rowguid: string
+    ModifiedDate: string
+}
+
+export interface BasicaPersonCreditCard {
+    BusinessEntityID: number
+    CreditCardID: number
+    ModifiedDate: string
+}

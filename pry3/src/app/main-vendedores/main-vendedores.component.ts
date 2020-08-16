@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Chart } from 'chart.js';
 import { ApiService } from '../services/api.services';
 import { Vendedor } from '../services/models/vendedores.models';
 import { Peras } from '../services/models/vendedores.models';
 import { Jaimicos } from '../services/models/vendedores.models'
+import { BasicVendedores } from '../services/models/vendedores.models';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogvendedoresComponent } from './dialogvendedores/dialogvendedores.component';
 
 @Component({
   selector: 'app-main-vendedores',
@@ -27,12 +29,28 @@ export class MainVendedoresComponent implements OnInit {
     public peras: Peras[];
     public jaimi: Jaimicos[];
     public jaimi2: Vendedor[];
+    public infoVendedores: BasicVendedores[]
+    readonly with: string = '600px';
+    readonly height: string = '300px';
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.getVendedores();
     this.getPeras();
+  }
+
+  getBasicInfoVendedores(id: number) {
+    this.api.getInfoVendedor(id).subscribe((result: BasicVendedores[]) => {
+      this.infoVendedores = result;
+      const dialogRef = this.dialog.open(DialogvendedoresComponent, {
+        width: this.with, height: this.height,
+        data: this.infoVendedores[0]
+      })
+    });
   }
 
   getMemes() {

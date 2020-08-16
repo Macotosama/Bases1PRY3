@@ -27,6 +27,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DialogComponent } from './main-productos/dialog/dialog.component';
+import { DialogventasComponent } from './main-ventas/dialogVentas/dialogventas.component';
+import { DialogventasCardComponent } from './main-ventas/Dialogventascard/dialogventasCard';
+import { DialogvendedoresComponent } from './main-vendedores/dialogvendedores/dialogvendedores.component';
+import { DialogclientesComponent } from './main-clientes/dialogclientes/dialogclientes.component';
+import { DialogproveedorComponent } from './main-proveedores/dialogproveedor/dialogproveedor.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MainVentasComponent,
     MainVendedoresComponent,
     MainClientesComponent,
-    MainProveedoresComponent
+    MainProveedoresComponent,
+    DialogComponent,
+    DialogventasComponent,
+    DialogventasCardComponent,
+    DialogvendedoresComponent,
+    DialogclientesComponent,
+    DialogproveedorComponent
   ],
   imports: [
     BrowserModule,

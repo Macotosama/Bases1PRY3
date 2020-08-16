@@ -31,3 +31,15 @@ export interface Jaimicos {
     startTimeShift: string
     endTimeShift: string
 }
+
+export interface BasicVendedores {
+    BusinessEntityID: number
+    TerritoryID: number
+    SalesQuota: number
+    Bonus: number
+    CommissionPct: number
+    SalesYTD: number
+    SalesLastYear: number
+    rowguid: string
+    ModifiedDate: string
+}

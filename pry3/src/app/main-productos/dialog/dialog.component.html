@@ -1,0 +1,25 @@
+<body>
+    <span class="id">Identificador: {{infoPro.ProductID}}</span><br>
+    <span class="id">Número: {{infoPro.ProductNumber}}</span><br>
+    <span class="id">Nombre: {{infoPro.ProductNumber}}</span><br>
+    <span class="id">Color: {{infoPro.Color == null? "No definido": infoPro.Color}}</span><br>
+    <span class="id">Existencias sin modificar: {{infoPro.SafetyStockLevel}}</span><br>
+    <span class="id">Punto de pedido: {{infoPro.ReorderPoint == null? "No definido": infoPro.ReorderPoint}}</span><br>
+    <span class="id">Costo estandar: {{infoPro.StandardCost == null? "No definido": infoPro.StandardCost}}</span><br>
+    <span class="id">Precio de lista: {{infoPro.ListPrice == null? "No definido": infoPro.ListPrice}}</span><br>
+    <span class="id">Tamaño Unidad Código de medida: {{infoPro.SizeUnitMEasureCode == null? "No definido": infoPro.SizeUnitMEasureCode}}</span><br>
+    <span class="id">Unidad de peso Código de medida: {{infoPro.WeightUnitMEasureCode == null? "No definido": infoPro.WeightUnitMEasureCode}}</span><br>
+    <span class="id">Peso: {{infoPro.Weight == null? "No definido": infoPro.Weight}}</span><br>
+    <span class="id">Días de fabricación según el peso: {{infoPro.DaysToManufacture == null? "No definido": infoPro.DaysToManufacture}}</span><br>
+    <span class="id">Línea de producto: {{infoPro.ProductLine == null? "No definido": infoPro.ProductLine}}</span><br>
+    <span class="id">Clase: {{infoPro.Class == null? "No definido": infoPro.Class}}</span><br>
+    <span class="id">Estilo: {{infoPro.Style == null? "No definido": infoPro.Style}}</span><br>
+    <span class="id">ID de subcategoría de producto: {{infoPro.ProductSubcategoryID == null? "No definido": infoPro.ProductSubcategoryID}}</span><br>
+    <span class="id">ID de modelo de producto: {{infoPro.ProductModelID == null? "No definido": infoPro.ProductModelID}}</span><br>
+    <span class="id">Fecha de inicio de venta: {{infoPro.SellStartDate == null? "No definido": infoPro.SellStartDate}}</span><br>
+    <span class="id">Vender fecha de finalización: {{infoPro.SellEndDate == null? "No definido": infoPro.SellEndDate}}</span><br>
+    <span class="id">ID de subcategoría de producto: {{infoPro.DiscontinuedDate == null? "No definido": infoPro.DiscontinuedDate}}</span><br>
+    <span class="id">Guid de fila: {{infoPro.rowguid == null? "No definido": infoPro.rowguid}}</span><br>
+    <span class="id">Fecha de modificación: {{infoPro.ModifiedDate == null? "No definido": infoPro.ModifiedDate}}</span><br><br>
+    <button mat-raised-button [mat-dialog-close]="true">Aceptar</button>
+</body>

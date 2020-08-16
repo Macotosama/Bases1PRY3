@@ -4,6 +4,9 @@ import { ApiService } from '../services/api.services';
 import { Persons } from '../services/models/persons.models';
 import { Mensaje } from '../services/models/persons.models';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BasicaCustomer } from '../services/models/persons.models';
+import { DialogclientesComponent } from './dialogclientes/dialogclientes.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main-clientes',
@@ -22,12 +25,34 @@ export class MainClientesComponent implements OnInit {
     public person: Persons[];
     public person2: Persons[];
     public kk: Mensaje;
+    public custumer: BasicaCustomer;
+    readonly with: string = '600px';
+    readonly height: string = '250px';
 
   constructor(private api: ApiService,
-    public snackBar: MatSnackBar,) { }
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
       this.getCLiente() ;
+  }
+
+  getBasicCliente(id: number) {
+    this.api.getBasicCliente(id).subscribe((result: BasicaCustomer[]) => {
+        console.log(result);
+        this.custumer = result[0];
+        if (result.length === 0) {
+            this.snackBar.open('No hay ventas relacionadas con el comprador', '',{
+                duration: 5000
+              });
+        } else {
+            const dialogRef = this.dialog.open(DialogclientesComponent, {
+                width: this.with, height: this.height,
+                data: this.custumer
+              })
+        }
+    });
   }
 
   insertCard() {

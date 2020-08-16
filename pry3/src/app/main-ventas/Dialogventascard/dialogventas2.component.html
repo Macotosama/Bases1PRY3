@@ -1,0 +1,8 @@
+<body>
+    <span>ID de entidad comercial: {{cardsBasic[cont].BusinessEntityID===null? "No especificado" : cardsBasic[cont].BusinessEntityID}}</span><br>
+    <span>ID de tarjeta de crédito: {{cardsBasic[cont].CreditCardID===null? "No especificado" : cardsBasic[cont].CreditCardID}}</span><br>
+    <span>Fecha de modificación: {{cardsBasic[cont].ModifiedDate===null? "No especificado" : cardsBasic[cont].ModifiedDate}}</span><br><br>
+    <button mat-raised-button class="1" (click)="after()">Anterior</button>
+    <button mat-raised-button class="a" [mat-dialog-close]="true">Aceptar</button>
+    <button mat-raised-button class="b" (click)="next()">Siguiente</button>
+</body>
