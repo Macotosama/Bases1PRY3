@@ -1,8 +1,17 @@
 <body>
-    <span>Identificación del cliente: {{infoPro.CustomerID==null? "No especificado" : infoPro.CustomerID}}</span><br>
-    <span>Identificación de persona: {{infoPro.PersonID==null? "No especificado" : infoPro.PersonID}}</span><br>
-    <span>ID de tienda: {{infoPro.StoreID==null? "No especificado" : infoPro.StoreID}}</span><br>
-    <span>Número de cuenta: {{infoPro.AccountNumber==null? "No especificado" : infoPro.AccountNumber}}</span><br>
-    <span>Ultima modificación: {{infoPro.ModifiedDate==null? "No especificado" : infoPro.ModifiedDate}}</span><br><br><br>
+    <div class="costado">
+        <label>Identificación del cliente:</label><br>
+        <label>Identificación de persona:</label><br>
+        <label>ID de tienda:</label><br>
+        <label>Número de cuenta:</label><br>
+        <label>Ultima modificación:</label><br>
+    </div>
+    <div class="info">
+        <label>{{infoPro.CustomerID==null? "No especificado" : infoPro.CustomerID}}</label><br>
+        <span>{{infoPro.PersonID==null? "No especificado" : infoPro.PersonID}}</span><br>
+        <span>{{infoPro.StoreID==null? "No especificado" : infoPro.StoreID}}</span><br>
+        <span> {{infoPro.AccountNumber==null? "No especificado" : infoPro.AccountNumber}}</span><br>
+        <span> {{infoPro.ModifiedDate==null? "No especificado" : infoPro.ModifiedDate}}</span><br><br><br>
+    </div>
     <button mat-raised-button [mat-dialog-close]="true">Aceptar</button>
 </body>

@@ -1,4 +1,20 @@
 button {
+    position: relative;
     background-color: #424242;
     color: #ffffff;
+    top: -60px;
+    left: 400px;
+}
+
+.costado {
+    position: relative;
+    text-align: right;
+    width: 12em;
+}
+
+.info {
+    position: relative;
+    left: 200px;
+    width: 15em;
+    top: -100px;
 }

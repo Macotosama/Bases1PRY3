@@ -1,16 +1,28 @@
 <body>
-    <span>Número de seguimiento del operador: {{infoPro[cont].CarrierTrackingNumber==null? "No especificado" : infoPro[cont].CarrierTrackingNumber}}</span><br>
-    <span>Linea total: {{infoPro[cont].LineTotal==null? "No especificado" : infoPro[cont].LineTotal}}</span><br>
-    <span>Fecha de modificación: {{infoPro[cont].ModifiedDate==null? "No especificado" : infoPro[cont].ModifiedDate}}</span><br>
-    <span>Cantidad: {{infoPro[cont].OrderQty==null? "No especificado" : infoPro[cont].OrderQty}}</span><br>
-    <span>Identificación de producto: {{infoPro[cont].ProductID==null? "No especificado" : infoPro[cont].ProductID}}</span><br>
-    <span>ID de pedido de venta: {{infoPro[cont].SalesOrderDetailID==null? "No especificado" : infoPro[cont].SalesOrderDetailID}}</span><br>
-    <span>ID de orden de venta: {{infoPro[cont].SalesOrderID==null? "No especificado" : infoPro[cont].SalesOrderID}}</span><br>
-    <span>ID de oferta especial: {{infoPro[cont].SpecialOfferID==null? "No especificado" : infoPro[cont].SpecialOfferID}}</span><br>
-    <span>Precio unitario: $  {{infoPro[cont].UnitPrice==null? "No especificado" : infoPro[cont].UnitPrice}}</span><br>
-    <span>Descuento de precio unitario: {{infoPro[cont].UnitPriceDiscount==null? "No especificado" : infoPro[cont].UnitPriceDiscount}}%</span><br>
-    <br>
-    <br>
+    <div class="costado">
+        <label>Número de seguimiento del operador:</label><br>
+        <label>Linea total:</label><br>
+        <label>Fecha de modificación:</label><br>
+        <label>Cantidad:</label><br>
+        <label>Identificación de producto:</label><br>
+        <label>ID de pedido de venta:</label><br>
+        <label>ID de orden de venta:</label><br>
+        <label>ID de oferta especial:</label><br>
+        <label>Precio unitario:</label><br>
+        <label>Descuento de precio unitario:</label>
+    </div>
+    <div class="info">
+        <span> {{infoPro[cont].CarrierTrackingNumber==null? "No especificado" : infoPro[cont].CarrierTrackingNumber}}</span><br>
+        <span> {{infoPro[cont].LineTotal==null? "No especificado" : infoPro[cont].LineTotal}}</span><br>
+        <span> {{infoPro[cont].ModifiedDate==null? "No especificado" : infoPro[cont].ModifiedDate}}</span><br>
+        <span> {{infoPro[cont].OrderQty==null? "No especificado" : infoPro[cont].OrderQty}}</span><br>
+        <span> {{infoPro[cont].ProductID==null? "No especificado" : infoPro[cont].ProductID}}</span><br>
+        <span> {{infoPro[cont].SalesOrderDetailID==null? "No especificado" : infoPro[cont].SalesOrderDetailID}}</span><br>
+        <span> {{infoPro[cont].SalesOrderID==null? "No especificado" : infoPro[cont].SalesOrderID}}</span><br>
+        <span> {{infoPro[cont].SpecialOfferID==null? "No especificado" : infoPro[cont].SpecialOfferID}}</span><br>
+        <span> $  {{infoPro[cont].UnitPrice==null? "No especificado" : infoPro[cont].UnitPrice}}</span><br>
+        <span> {{infoPro[cont].UnitPriceDiscount==null? "No especificado" : infoPro[cont].UnitPriceDiscount}}%</span>
+    </div>
     <button mat-raised-button class="1" (click)="after()">Anterior</button>
     <button mat-raised-button class="a" [mat-dialog-close]="true">Aceptar</button>
     <button mat-raised-button class="b" (click)="next()">Siguiente</button>

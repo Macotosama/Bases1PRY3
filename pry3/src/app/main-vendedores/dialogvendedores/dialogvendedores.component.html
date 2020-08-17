@@ -1,11 +1,23 @@
 <body>
-    <span>ID de entidad comercial: {{infoVend.BusinessEntityID==null? "No espesificado" : infoVend.BusinessEntityID}}</span><br>
-    <span>ID de territorio: {{infoVend.TerritoryID==null? "No espesificado" : infoVend.TerritoryID}}</span><br>
-    <span>Cuota de ventas: {{infoVend.SalesQuota==null? "No espesificado" : infoVend.SalesQuota}}</span><br>
-    <span>Bonus: {{infoVend.Bonus==null? "No espesificado" : infoVend.Bonus}}</span><br>
-    <span>Porcentaje de comisión: {{infoVend.CommissionPct==null? "No espesificado" : infoVend.CommissionPct}}</span><br>
-    <span>Ventas hasta la fecha: {{infoVend.SalesYTD==null? "No espesificado" : infoVend.SalesYTD}}</span><br>
-    <span>Ventas el año pasado: {{infoVend.SalesLastYear==null? "No espesificado" : infoVend.SalesLastYear}}</span><br>
-    <span>Ultima modificación: {{infoVend.ModifiedDate==null? "No espesificado" : infoVend.ModifiedDate}}</span><br><br><br>
+    <div class="costado">
+        <label>ID de entidad comercial:</label><br>
+        <label>ID de territorio:</label><br>
+        <label>Cuota de ventas:</label><br>
+        <label>Bonus:</label><br>
+        <label>Porcentaje de comisión:</label><br>
+        <label>Ventas hasta la fecha:</label><br>
+        <label>Ventas el año pasado:</label><br>
+        <label>Ultima modificación:</label>
+    </div>
+    <div class="info">
+        <span>{{infoVend.BusinessEntityID==null? "No espesificado" : infoVend.BusinessEntityID}}</span><br>
+        <span>{{infoVend.TerritoryID==null? "No espesificado" : infoVend.TerritoryID}}</span><br>
+        <span>{{infoVend.SalesQuota==null? "No espesificado" : infoVend.SalesQuota}}</span><br>
+        <span>{{infoVend.Bonus==null? "No espesificado" : infoVend.Bonus}}</span><br>
+        <span>{{infoVend.CommissionPct==null? "No espesificado" : infoVend.CommissionPct}}</span><br>
+        <span>{{infoVend.SalesYTD==null? "No espesificado" : infoVend.SalesYTD}}</span><br>
+        <span>{{infoVend.SalesLastYear==null? "No espesificado" : infoVend.SalesLastYear}}</span><br>
+        <span>{{infoVend.ModifiedDate==null? "No espesificado" : infoVend.ModifiedDate}}</span>
+    </div>
     <button mat-raised-button [mat-dialog-close]="true">Aceptar</button>
 </body>

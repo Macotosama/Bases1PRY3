@@ -2,9 +2,14 @@
 <div>
     <mat-toolbar class="top">
         <span style="cursor: pointer" [routerLink]="['/home']">Adventures Works</span>
-        <button mat-icon-button mat-flat-button class="login">
-            <mat-icon class="login2">account_circle</mat-icon>
-        </button>
+        <button mat-button [matMenuTriggerFor]="menu" class="login">Menu</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/mainProductos']">Productos</button>
+          <button mat-menu-item [routerLink]="['/mainVentas']">Ventas</button>
+          <button mat-menu-item [routerLink]="['/mainVendedores']">Vendedores</button>
+          <button mat-menu-item [routerLink]="['/mainClientes']">Clientes</button>
+          <button mat-menu-item [routerLink]="['/mainProveedores']">Proveedores</button>
+        </mat-menu>   
     </mat-toolbar>    
 </div>
 
